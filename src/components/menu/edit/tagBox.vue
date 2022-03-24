@@ -85,11 +85,11 @@ export default {
       if (this.commandDisabled) {
         return;
       }
-      if (this.tagEditCheck) {
-        if (!this.tagEditCheck(resourceName)) {
-          return;
-        }
-      }
+      // if (this.tagEditCheck) {
+      //   if (!this.tagEditCheck(resourceName)) {
+      //     return;
+      //   }
+      // }
       let origin = this.minder.queryCommandValue('resource');
       if (!resourceName || !/\S/.test(resourceName)) return;
       let index = origin.indexOf(resourceName);
