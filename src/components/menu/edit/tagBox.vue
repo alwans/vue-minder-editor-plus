@@ -52,31 +52,31 @@ export default {
     getResourceColor(resource) {
       if (this.minder && this.minder.getResourceColor) {
         if (resource == "通过" || resource == "Pass" || resource == "通過"){
-          return "#3bbf287a"
+          return "#3CBD28"
         }
         if (resource == "不通过" || resource == "UnPass" || resource == "不通過"){
-          return "#ed070780"
+          return "#FF6666"
         }
         if (resource == "备注" || resource == "Remark" || resource == "備註"){
-          return "#e6a23c75"
+          return "#E6A23D"
         }
         if (resource == "失败" || resource == "Failure" || resource == "失敗"){
           return "#DC143C"
         }
         if (resource == "阻塞" || resource == "Blocking" || resource == "阻塞"){
-          return "#1aade18f"
+          return "#1AABE0"
         }
         if (resource == "跳过" || resource == "Skip" || resource == "跳過"){
-          return "#c67cd7ab"
+          return "#C57AD6"
         }
         if (resource == "用例" || resource == "Case" || resource == "用例"){
-          return "#FFD700"
+          return "#FFD900"
         }
         if (resource == "前置条件" || resource == "Prerequisite" || resource == "前置條件"){
-          return "#9933FA"
+          return "#DA71D7"
         }
         if (resource == "标签" || resource == "Tag" || resource == "標簽"){
-          return "#B0E0E6"
+          return "#B1E0E7"
         }
         return this.minder.getResourceColor(resource).toHEX();
       }
