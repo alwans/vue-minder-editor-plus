@@ -5,6 +5,7 @@
       :progress-enable="true"
       :tag-enable="true"
       :sequence-enable="true"
+      :image-enable="true"
       :tags="tags"
       :move-enable="true"
       :disabled="true"
@@ -16,7 +17,10 @@
       @afterMount="afterMount()"
       :default-mold="3"
       @moldChange="handleMoldChange"
-      @save="save"/>
+      @save="save"
+      :image-upload="imageUpload"
+      :image-delete="imageDelete"
+    />
   </div>
 </template>
 
@@ -46,12 +50,22 @@ export default {
               "children": [
                 {
                   "data": { "text": "地图axxaaaa",
-                    disable: true,
                     allowDelete: true,
+                    allowImage: false,
                     // tagEnable: true,
                     // allowDisabledTag: true,
                     resource: ["模块12"]}
-                }]
+                },
+                {
+                  "data": { "text": "111"}
+                },
+                {
+                  "data": { "text": "222"}
+                },
+                {
+                  "data": { "text": "333"}
+                },
+                ]
             },
             { "data": {
               "text": "百科aa",
@@ -69,7 +83,6 @@ export default {
 
   methods: {
     save(data) {
-      console.log(data);
     },
     test() {
       // return () => {
@@ -91,11 +104,8 @@ export default {
       //   // }
       // });
       minder.on('contentchange', function (env) {
-        console.log('contentchange');
         // console.log(env);
         let selectNodes = env.minder.getSelectedNodes();
-        console.log(selectNodes);
-        console.log("=====");
 
       });
       // minder.on('afterExecCommand', function (env) {
@@ -107,8 +117,6 @@ export default {
       //   console.log(env);
       // });
       minder.on('beforeExecCommand', function (env) {
-        console.log('beforeExecCommand');
-        console.log(env);
       });
 
       this.addHotBox();
@@ -131,6 +139,17 @@ export default {
         beforeShow: function () {
         }
       })
+    },
+    imageUpload(file) {
+      file.full_path_after_upload = "https://ysg.mihoyo.com:8080/casehost/resource/md/get/717a7570_%E6%88%AA%E5%B1%8F2022-12-05%2014.44.13.png"
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(file)
+        }, 1000);
+      })
+    },
+    imageDelete(nodes) {
+      console.log(nodes)
     }
   }
 }

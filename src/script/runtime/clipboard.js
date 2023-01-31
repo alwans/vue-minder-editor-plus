@@ -155,6 +155,7 @@ define(function (require, exports, module) {
               minder.refresh();
             } else if (clipBoardEvent.clipboardData && clipBoardEvent.clipboardData.items[0].type.indexOf('image') > -1) {
               var imageFile = clipBoardEvent.clipboardData.items[0].getAsFile();
+              console.log(imageFile)
               var serverService = angular.element(document.body).injector().get('server');
 
               return serverService.uploadImage(imageFile).then(function (json) {

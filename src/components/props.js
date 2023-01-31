@@ -86,6 +86,10 @@ export let editMenuProps = {
     type: Boolean,
     default: true
   },
+  imageEnable: {
+    type: Boolean,
+    default: true
+  }
 }
 
 export let moleProps = {
@@ -94,4 +98,9 @@ export let moleProps = {
     type: Number,
     default: 3
   }
+}
+
+export let imageProps = {
+  imageUpload: Function,
+  imageDelete: Function,
 }

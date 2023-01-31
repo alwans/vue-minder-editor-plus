@@ -20,6 +20,17 @@ export function isDeleteDisableNode(minder) {
   return false;
 }
 
+export function isImageDisable(minder) {
+  let node = undefined;
+  if (minder && minder.getSelectedNode) {
+    node = minder.getSelectedNode();
+  }
+  if (node && node.data.allowImage === false) {
+    return true;
+  }
+  return false;
+}
+
 export function isTagEnable(minder) {
   let node = undefined;
   if (minder && minder.getSelectedNode) {

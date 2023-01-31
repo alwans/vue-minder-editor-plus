@@ -9,6 +9,7 @@
             :sequence-enable="sequenceEnable"
             :tag-enable="tagEnable"
             :progress-enable="progressEnable"
+            :image-enable="imageEnable"
             :priority-count="priorityCount"
             :priority-prefix="priorityPrefix"
             :tag-edit-check="tagEditCheck"
@@ -17,6 +18,8 @@
             :priority-start-with-zero="priorityStartWithZero"
             :tags="tags"
             :distinct-tags="distinctTags"
+            :image-upload="imageUpload"
+            :image-delete="imageDelete"
           />
         </div>
       </el-tab-pane>
@@ -35,7 +38,7 @@
 <script>
   import editMenu from '../menu/edit/editMenu'
   import viewMenu from '../menu/view/viewMenu'
-  import {editMenuProps, moleProps, priorityProps, tagProps} from "../props";
+  import {editMenuProps, moleProps, priorityProps, tagProps, imageProps} from "../props";
   export default {
     name: 'headerVue',
     data() {
@@ -52,6 +55,7 @@
       ...priorityProps,
       ...tagProps,
       ...moleProps,
+      ...imageProps,
       minder: {}
     },
     components: {

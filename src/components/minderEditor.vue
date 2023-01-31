@@ -4,6 +4,7 @@
       :sequence-enable="sequenceEnable"
       :tag-enable="tagEnable"
       :progress-enable="progressEnable"
+      :image-enable="imageEnable"
       :priority-count="priorityCount"
       :priority-prefix="priorityPrefix"
       :priority-start-with-zero="priorityStartWithZero"
@@ -15,6 +16,8 @@
       :distinct-tags="distinctTags"
       :default-mold="defaultMold"
       @moldChange="handleMoldChange"
+      :image-upload="imageUpload"
+      :image-delete="imageDelete"
     />
     <main-editor
       :disabled="disabled"
@@ -36,7 +39,7 @@
 <script>
 import headerMenu from './main/header'
 import mainEditor from './main/mainEditor'
-import {editMenuProps, mainEditorProps, moleProps, priorityProps, tagProps} from "./props";
+import {editMenuProps, mainEditorProps, moleProps, priorityProps, tagProps, imageProps} from "./props";
 
 export default {
   name: 'minderEditor',
@@ -62,7 +65,8 @@ export default {
     ...priorityProps,
     ...tagProps,
     ...moleProps,
-    ...mainEditorProps
+    ...mainEditorProps,
+    ...imageProps
   },
 }
 

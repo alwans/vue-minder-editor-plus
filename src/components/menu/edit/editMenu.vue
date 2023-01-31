@@ -20,6 +20,12 @@
       :tag-edit-check="tagEditCheck"
       :distinct-tags="distinctTags"
     />
+    <image-box
+      v-if="imageEnable"
+      :image-upload="imageUpload"
+      :image-delete="imageDelete"
+    >
+    </image-box>
   </div>
 </template>
 
@@ -32,7 +38,8 @@ import progressBox from './progressBox'
 import expand from './expand'
 import selection from './selection'
 import TagBox from "./tagBox";
-import {editMenuProps, priorityProps, tagProps} from "../../props";
+import ImageBox from './imageBox'
+import {editMenuProps, priorityProps, tagProps, imageProps} from "../../props";
 
 export default {
   name: 'editMenu',
@@ -43,13 +50,15 @@ export default {
     editDel,
     sequenceBox,
     progressBox,
+    ImageBox,
     expand,
     selection
   },
   props: {
     ...editMenuProps,
     ...priorityProps,
-    ...tagProps
+    ...tagProps,
+    ...imageProps,
   },
 }
 </script>
