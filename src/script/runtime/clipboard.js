@@ -6,7 +6,6 @@ define(function (require, exports, module) {
 
     var {markDeleteNode, resetNodes} = require('../tool/utils');
 
-
     if (!minder.supportClipboardEvent || kity.Browser.gecko) {
       return;
     };
@@ -155,15 +154,20 @@ define(function (require, exports, module) {
               minder.refresh();
             } else if (clipBoardEvent.clipboardData && clipBoardEvent.clipboardData.items[0].type.indexOf('image') > -1) {
               var imageFile = clipBoardEvent.clipboardData.items[0].getAsFile();
-              console.log(imageFile)
-              var serverService = angular.element(document.body).injector().get('server');
-
-              return serverService.uploadImage(imageFile).then(function (json) {
-                var resp = json.data;
-                if (resp.errno === 0) {
-                  minder.execCommand('image', resp.data.url);
-                }
+              const file = {
+                file: imageFile
+              }
+              const p = window.minder.imageUpload(file);
+              p.then((file) => {
+                minder.execCommand("image", file.full_path_after_upload);
               });
+              // var serverService = angular.element(document.body).injector().get('server');
+              // return serverService.uploadImage(imageFile).then(function (json) {
+              //   var resp = json.data;
+              //   if (resp.errno === 0) {
+              //     minder.execCommand('image', resp.data.url);
+              //   }
+              // });
             } else {
               sNodes.forEach(function (node) {
                 minder.Text2Children(node, textData);

@@ -44,6 +44,8 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
+      // = this.imageUpload
+      window.minder.imageUpload = this.imageUpload;// 节点粘贴图片时需要用到这个方法。
       this.minder = minder;
       // 点击节点，触发computed
     });
